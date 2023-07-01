@@ -54,4 +54,3 @@ describe('simpleCalculator tests', () => {
     expect(result).toBe(null);
   });
 });
-
