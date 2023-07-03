@@ -26,7 +26,7 @@ const testCases = [
 ];
 
 describe('simpleCalculator', () => {
-   test.each(testCases)('table tests', ({ a, b, action, expected }) => {
+  test.each(testCases)('table tests', ({ a, b, action, expected }) => {
     const result = simpleCalculator({
       a: a,
       b: b,
