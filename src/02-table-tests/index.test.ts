@@ -26,17 +26,12 @@ const testCases = [
 ];
 
 describe('simpleCalculator', () => {
-  // This test case is just to run this test suite, remove it when you write your own tests
-  test('table tests', () => {
-    testCases.forEach((item) => {
-      const { a, b, action, expected } = item;
-      const result = simpleCalculator({
-        a: a,
-        b: b,
-        action: action,
-      });
-      expect(result).toEqual(expected);
+   test.each(testCases)('table tests', ({ a, b, action, expected }) => {
+    const result = simpleCalculator({
+      a: a,
+      b: b,
+      action: action,
     });
+    expect(result).toEqual(expected);
   });
-  // Consider to use Jest table tests API to test all cases above
 });
