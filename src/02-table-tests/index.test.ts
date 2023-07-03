@@ -35,7 +35,7 @@ describe('simpleCalculator', () => {
         b: b,
         action: action,
       });
-      expect(result).toBe(expected);
+      expect(result).toEqual(expected);
     });
   });
   // Consider to use Jest table tests API to test all cases above

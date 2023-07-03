@@ -14,7 +14,7 @@ describe('BankAccount', () => {
 
   test('should create account with initial balance', () => {
     const account = getBankAccount(initialBalance);
-    expect(account.getBalance()).toBe(initialBalance);
+    expect(account.getBalance()).toEqual(initialBalance);
   });
 
   test('should throw InsufficientFundsError error when withdrawing more than balance', () => {
@@ -43,21 +43,21 @@ describe('BankAccount', () => {
   test('should deposit money', () => {
     const account = getBankAccount(initialBalance);
     account.deposit(moneyForDeposit);
-    expect(account.getBalance()).toBe(initialBalance + moneyForDeposit);
+    expect(account.getBalance()).toEqual(initialBalance + moneyForDeposit);
   });
 
   test('should withdraw money', () => {
     const account = getBankAccount(initialBalance);
     account.withdraw(withdrawMoney);
-    expect(account.getBalance()).toBe(initialBalance - withdrawMoney);
+    expect(account.getBalance()).toEqual(initialBalance - withdrawMoney);
   });
 
   test('should transfer money', () => {
     const account = getBankAccount(initialBalance);
     const account2 = getBankAccount(initialBalance);
     account.transfer(transferMoney, account2);
-    expect(account.getBalance()).toBe(initialBalance - transferMoney);
-    expect(account2.getBalance()).toBe(initialBalance + transferMoney);
+    expect(account.getBalance()).toEqual(initialBalance - transferMoney);
+    expect(account2.getBalance()).toEqual(initialBalance + transferMoney);
   });
 
   test('fetchBalance should return number in case if request did not failed', async () => {
@@ -67,7 +67,7 @@ describe('BankAccount', () => {
     if (isSuccessRequest) {
       expect(fetchBalance).toBeNull();
     } else {
-      expect(typeof fetchBalance).toBe('number');
+      expect(typeof fetchBalance).toEqual('number');
     }
   });
 
@@ -76,7 +76,7 @@ describe('BankAccount', () => {
     const mockBalance = 400;
     jest.spyOn(account, 'fetchBalance').mockResolvedValue(mockBalance);
     await account.synchronizeBalance();
-    expect(account.getBalance()).toBe(mockBalance);
+    expect(account.getBalance()).toEqual(mockBalance);
   });
 
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {

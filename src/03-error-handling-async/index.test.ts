@@ -10,7 +10,7 @@ import {
 describe('resolveValue', () => {
   test('should resolve provided value', async () => {
     const value = 'awesome value';
-    expect(resolveValue(value)).resolves.toBe(value);
+    expect(resolveValue(value)).resolves.toEqual(value);
   });
 });
 
